@@ -1,0 +1,58 @@
+{
+  "name": "mcp-skills-dsh",
+  "version": "0.6.1",
+  "description": "MCP-Skills-DSH：DeepSeek Harness 左侧栏插件，独立页面直接管理 MCP 与 Skills",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.2-rc.1 <0.3.0",
+    "node": ">=22"
+  },
+  "files": [
+    "index.js",
+    "host-api.js",
+    "runtime.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib/",
+    "vendor/",
+    "locale/",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "author": "Aki_Haruka",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "mcp",
+    "skills",
+    "plugin",
+    "cordis",
+    "bundle"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "pack:check": "npm pack --dry-run --json"
+  }
+}

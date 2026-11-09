@@ -1,0 +1,18 @@
+# mcp-skills-dsh —— host 服务注册行。
+# 该 patch 由 dsh plugin add 自动合并进目标 profile 的 cordis 配置，装了即生效。
+#
+# 字段含义：
+#   id:       cordis 上下文服务 id，须与 index.js 的 `export const name = 'dsh-admin'` 对应
+#   name:     要加载的包名（= package.json 的 name），DSH 据此解析本 bundle
+#   inject:   依赖注入的服务，这里只用 tools（注册 dsh_admin 工具）
+#   config.enabled:
+#       true  -> host 半 apply() 正常注册 dsh_admin 工具（默认，装了就能用）
+#       false -> host 半熔断，不注册任何工具（如需临时停用再改成 false）
+#
+# 注意：本 patch 里必须是 enabled: true（或干脆不设 enabled），否则装了也不工作。
+- insert:
+    - id: dsh-admin
+      name: mcp-skills-dsh
+      inject: [tools]
+      config:
+        enabled: true

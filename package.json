@@ -1,0 +1,21 @@
+{
+  "name": "dsh-admin",
+  "version": "0.1.0",
+  "description": "DSH 的 MCP + skills 本地管理套件（只读优先，默认绝不触碰真实 ~/.dsh）",
+  "type": "module",
+  "bin": {
+    "dsh-admin": "bin/dsh-admin.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/mcp.test.mjs test/skills.test.mjs test/cli.test.mjs",
+    "check": "node bin/dsh-admin.mjs --json status"
+  },
+  "dependencies": {
+    "yaml": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "private": true
+}

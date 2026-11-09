@@ -1,0 +1,6 @@
+{
+  "name": "dsh-admin-vendored-yaml",
+  "version": "2.9.1",
+  "type": "commonjs",
+  "main": "./index.js"
+}

@@ -1,0 +1,51 @@
+# dsh-admin 测试 fixture —— 仅用于本地测试，绝不代表真实 DSH 配置
+# 覆盖行示例（cordis 用后出现的同 id 行覆盖前面的配置）
+- id: ui-chat
+  name: '@deepseek-ai/dsh-client-ui-chat'
+  config:
+    transcriptView: verbose
+    performanceUsage: detailed
+
+# === qq-bridge MCP BEGIN ===
+# 由脚本维护；下面含 stdio 形态与 !!js 惰性表达式
+- insert:
+    - id: mcp-snowluma
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: snowluma
+        transport: stdio
+        command: 'C:\Program Files\nodejs\node.exe'
+        args:
+          - 'C:\Riko的空间\qq-bridge\src\mcp-snowluma-safe.js'
+        env:
+          PYTHONIOENCODING: utf-8
+        toolCallTimeoutMs: 725000
+        # !!js 惰性表达式：写入时必须原样保留，不求值、不重排
+        beforeHook: !!js |
+          (ctx) => ctx.logger?.info('snowluma ready')
+- insert:
+    - id: mcp-exa
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: exa
+        transport: streamable-http
+        url: https://mcp.exa.ai/mcp?exaApiKey=TESTKEY&tools=web_search_exa,web_fetch_exa
+        headers:
+          X-Test: '1'
+        toolCallTimeoutMs: 120000
+# === qq-bridge MCP END ===
+
+# 覆盖行：用 disabled:true 禁用上面某个 MCP（不删原配置）
+- id: mcp-exa
+  disabled: true
+
+# mcp-manager 形态：config.servers 是 volatile dict
+- id: mcp-manager
+  name: '@deepseek-ai/dsh-mcp-manager'
+  config:
+    servers:
+      volatile-a:
+        transport: stdio
+        command: node
+        args:
+          - server.js

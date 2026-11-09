@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "MCP-Skills-DSH",
+    "description": "A DeepSeek Harness bundle that manages MCP servers and Skills in-app (writes are dry-run by default)"
+  },
+  "title": "MCP-Skills-DSH",
+  "configSummary": "Built-in MCP + Skills admin (dry-run by default)",
+  "configForm": "MCP-Skills-DSH settings",
+  "refresh": "Refresh",
+  "loading": "Working…",
+  "mcpTitle": "MCP servers",
+  "skillsTitle": "Skills",
+  "guideTitle": "Manage via the dsh_admin tool in a session",
+  "guideBody": "The web client is not connected to the host dsh_admin service. Call the dsh_admin tool in a session instead; writes are dry-run by default and only persist with confirm:true.",
+  "dryRun": "[dry-run] Changes below are NOT written yet. Click \"Confirm apply\" to persist.",
+  "applied": "[applied]",
+  "confirmApply": "Confirm apply (confirm:true)"
+}

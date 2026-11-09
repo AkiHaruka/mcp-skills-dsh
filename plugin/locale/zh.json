@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "MCP-Skills-DSH",
+    "description": "在 DeepSeek Harness 内管理 MCP 与 Skills 的 bundle 插件（写操作默认 dry-run）"
+  },
+  "title": "MCP-Skills-DSH",
+  "configSummary": "MCP + Skills 内置管理（默认 dry-run）",
+  "configForm": "MCP-Skills-DSH 配置",
+  "refresh": "刷新",
+  "loading": "处理中…",
+  "mcpTitle": "MCP 服务",
+  "skillsTitle": "Skills",
+  "guideTitle": "在会话中使用 dsh_admin 工具管理",
+  "guideBody": "当前 Web 端未连接到 host 的 dsh_admin 服务，请在会话中调用 dsh_admin 工具；写操作默认只预览 diff，加 confirm:true 才会落盘。",
+  "dryRun": "【dry-run 预览】以下改动尚未写入，确认后点「确认应用」。",
+  "applied": "【已提交】",
+  "confirmApply": "确认应用（confirm:true）"
+}
